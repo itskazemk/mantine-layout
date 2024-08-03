@@ -33,16 +33,16 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksG
     <>
       <button onClick={() => setOpened((o) => !o)} className={`${classes.control} px-4 py-2`}>
         {/* <div className="grid grid-cols-4 w-full"> */}
-        <div className="grid w-full grid-rows-[auto,1fr,auto]">
-          <Box className="col-span-3 grid grid-cols-4">
-            <ThemeIcon variant="light" size={30} className="col-span-1">
-              <Icon style={{ width: rem(18), height: rem(18) }} />
-            </ThemeIcon>
-            <Box ml="md">{label}</Box>
+        <div className="flex w-full items-center">
+          <ThemeIcon variant="light" size={30} className="w-4 bg-blue-300">
+            <Icon style={{ width: rem(18), height: rem(18) }} />
+          </ThemeIcon>
+          <Box ml="md" className="w-48 bg-purple-300">
+            {label}
           </Box>
           {hasLinks && (
             <IconChevronRight
-              className={`${classes.chevron} col-span-1 bg-red-300`}
+              className={`${classes.chevron} col-span-1 w-4 bg-red-300`}
               stroke={1.5}
               style={{
                 width: rem(16),
