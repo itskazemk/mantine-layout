@@ -2,7 +2,7 @@
     font-weight: 500;
     display: block;
     width: 100%;
-    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+    /* padding: var(--mantine-spacing-xs) var(--mantine-spacing-md); */
     color: var(--mantine-color-text);
     font-size: var(--mantine-font-size-sm);
   

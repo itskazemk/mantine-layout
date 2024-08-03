@@ -9,7 +9,6 @@ import {
   IconLock,
 } from "@tabler/icons-react";
 // import { UserButton } from '../UserButton/UserButton';
-// import { LinksGroup } from '../NavbarLinksGroup/NavbarLinksGroup';
 // import { Logo } from './Logo';
 import classes from "./NavbarNested.module.css";
 import { LinksGroup } from "./NavbarLinkGroup";
@@ -57,10 +56,11 @@ export function NavbarNested() {
   ));
 
   return (
-    <nav className={`${classes.navbar}`}>
-      <div className={classes.header}>
+    <nav className={`grid grid-rows-[auto,1fr,auto] h-full p-2`}>
+      <div className="border-b pb-2">
         <Group justify="space-between">
           {/* <Logo style={{ width: rem(120) }} /> */}
+          {/* <Code fw={700}>v3.1.2</Code> */}
           <Code fw={700}>v3.1.2</Code>
         </Group>
       </div>

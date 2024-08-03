@@ -1,16 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Group,
-  Box,
-  Collapse,
-  ThemeIcon,
-  Text,
-  UnstyledButton,
-  rem,
-} from "@mantine/core";
-import { IconCalendarStats, IconChevronRight } from "@tabler/icons-react";
+import { Group, Box, Collapse, ThemeIcon, Text, rem } from "@mantine/core";
+import { IconChevronRight } from "@tabler/icons-react";
 import classes from "./NavbarLinksGroup.module.css";
 
 interface LinksGroupProps {
@@ -26,6 +18,8 @@ export function LinksGroup({
   initiallyOpened,
   links,
 }: LinksGroupProps) {
+  console.log(label);
+  //
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(initiallyOpened || false);
   const items = (hasLinks ? links : []).map((link) => (
@@ -42,20 +36,21 @@ export function LinksGroup({
 
   return (
     <>
-      <UnstyledButton
+      <button
         onClick={() => setOpened((o) => !o)}
-        className={classes.control}
+        className={`${classes.control} px-4 py-2`}
       >
-        <Group justify="space-between" gap={0}>
-          <Box style={{ display: "flex", alignItems: "center" }}>
-            <ThemeIcon variant="light" size={30}>
+        {/* <div className="grid grid-cols-4 w-full"> */}
+                <div className="grid w-full grid-rows-[auto,1fr,auto] ">
+          <Box className="col-span-3 grid grid-cols-4">
+            <ThemeIcon variant="light" size={30} className="col-span-1">
               <Icon style={{ width: rem(18), height: rem(18) }} />
             </ThemeIcon>
             <Box ml="md">{label}</Box>
           </Box>
           {hasLinks && (
             <IconChevronRight
-              className={classes.chevron}
+              className={`${classes.chevron} col-span-1 bg-red-300`}
               stroke={1.5}
               style={{
                 width: rem(16),
@@ -64,27 +59,9 @@ export function LinksGroup({
               }}
             />
           )}
-        </Group>
-      </UnstyledButton>
+        </div>
+      </button>
       {hasLinks ? <Collapse in={opened}>{items}</Collapse> : null}
     </>
-  );
-}
-
-const mockdata = {
-  label: "Releases",
-  icon: IconCalendarStats,
-  links: [
-    { label: "Upcoming releases", link: "/" },
-    { label: "Previous releases", link: "/" },
-    { label: "Releases schedule", link: "/" },
-  ],
-};
-
-export function NavbarLinksGroup() {
-  return (
-    <Box mih={220} p="md">
-      <LinksGroup {...mockdata} />
-    </Box>
   );
 }

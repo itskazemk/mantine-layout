@@ -37,7 +37,6 @@ export function Navbar({ children }: any) {
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
-        Navbar
         <NavbarNested />
         {/* {Array(15)
           .fill(0)
