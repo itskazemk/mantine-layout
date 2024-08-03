@@ -51,12 +51,10 @@ const mockdata = [
 ];
 
 export function NavbarNested() {
-  const links = mockdata.map((item) => (
-    <LinksGroup {...item} key={item.label} />
-  ));
+  const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} />);
 
   return (
-    <nav className={`grid grid-rows-[auto,1fr,auto] h-full p-2`}>
+    <nav className={`grid h-full grid-rows-[auto,1fr,auto] p-2`}>
       <div className="border-b pb-2">
         <Group justify="space-between">
           {/* <Logo style={{ width: rem(120) }} /> */}
