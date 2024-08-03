@@ -12,12 +12,7 @@ interface LinksGroupProps {
   links?: { label: string; link: string }[];
 }
 
-export function LinksGroup({
-  icon: Icon,
-  label,
-  initiallyOpened,
-  links,
-}: LinksGroupProps) {
+export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksGroupProps) {
   console.log(label);
   //
   const hasLinks = Array.isArray(links);
@@ -36,12 +31,9 @@ export function LinksGroup({
 
   return (
     <>
-      <button
-        onClick={() => setOpened((o) => !o)}
-        className={`${classes.control} px-4 py-2`}
-      >
+      <button onClick={() => setOpened((o) => !o)} className={`${classes.control} px-4 py-2`}>
         {/* <div className="grid grid-cols-4 w-full"> */}
-                <div className="grid w-full grid-rows-[auto,1fr,auto] ">
+        <div className="grid w-full grid-rows-[auto,1fr,auto]">
           <Box className="col-span-3 grid grid-cols-4">
             <ThemeIcon variant="light" size={30} className="col-span-1">
               <Icon style={{ width: rem(18), height: rem(18) }} />
