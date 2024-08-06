@@ -15,7 +15,7 @@ import { LinksGroup } from "./NavbarLinkGroup";
 import { UserButton } from "./UserButton";
 
 const mockdata = [
-  { label: "Dashboard", icon: IconGauge },
+  { label: "Dashboard", icon: IconGauge, primaryItemLink: "/" },
   {
     label: "Market news",
     icon: IconNotes,
@@ -36,7 +36,7 @@ const mockdata = [
       { label: "Releases schedule", link: "/" },
     ],
   },
-  { label: "Analytics", icon: IconPresentationAnalytics },
+  { label: "Analytics", icon: IconPresentationAnalytics, primaryItemLink: "/Analytics" },
   { label: "Contracts", icon: IconFileAnalytics },
   { label: "Settings", icon: IconAdjustments },
   {

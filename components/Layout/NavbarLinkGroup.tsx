@@ -4,28 +4,30 @@ import { useState } from "react";
 import { Group, Box, Collapse, ThemeIcon, Text, rem } from "@mantine/core";
 import { IconChevronRight } from "@tabler/icons-react";
 import classes from "./NavbarLinksGroup.module.css";
+import Link from "next/link";
 
 interface LinksGroupProps {
   icon: React.FC<any>;
   label: string;
   initiallyOpened?: boolean;
   links?: { label: string; link: string }[];
+  primaryItemLink?: string;
 }
 
-export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksGroupProps) {
+export function LinksGroup({ icon: Icon, label, initiallyOpened, links, primaryItemLink }: LinksGroupProps) {
   console.log(label);
   //
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(initiallyOpened || false);
   const items = (hasLinks ? links : []).map((link) => (
-    <a
+    <Link
       className="block w-11/12 border-l-2 py-1 text-center hover:bg-gray-100"
       href={link.link}
       key={link.label}
       onClick={(event) => event.preventDefault()}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (
@@ -36,9 +38,13 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksG
           <ThemeIcon variant="light" size={30} className="">
             <Icon style={{ width: rem(18), height: rem(18) }} />
           </ThemeIcon>
-          <Box ml="md" className="">
-            {label}
-          </Box>
+          {hasLinks ? (
+            <Box ml="md" className="">
+              {label}
+            </Box>
+          ) : (
+            <Link href={primaryItemLink ?? "/"}>{label}</Link>
+          )}
           {hasLinks && (
             <IconChevronRight
               className={`${classes.chevron} `}

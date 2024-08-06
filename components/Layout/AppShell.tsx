@@ -29,7 +29,7 @@ export function Navbar({ children }: any) {
       <AppShell.Navbar p="md">
         <NavbarNested />
         {/* {Array(15)
-          .fill(0)
+          .fill(0)  
           .map((_, index) => (
             <Skeleton key={index} h={28} mt="sm" animate={false} />
           ))} */}
