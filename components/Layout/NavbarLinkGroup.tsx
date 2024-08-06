@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Group, Box, Collapse, ThemeIcon, Text, rem } from "@mantine/core";
+import { Group, Box, Collapse, ThemeIcon, Text, rem, Button } from "@mantine/core";
 import { IconChevronRight } from "@tabler/icons-react";
 import classes from "./NavbarLinksGroup.module.css";
 import Link from "next/link";
@@ -12,9 +12,17 @@ interface LinksGroupProps {
   initiallyOpened?: boolean;
   links?: { label: string; link: string }[];
   primaryItemLink?: string;
+  toggleMobile: any;
 }
 
-export function LinksGroup({ icon: Icon, label, initiallyOpened, links, primaryItemLink }: LinksGroupProps) {
+export function LinksGroup({
+  icon: Icon,
+  label,
+  initiallyOpened,
+  links,
+  primaryItemLink,
+  toggleMobile,
+}: LinksGroupProps) {
   console.log(label);
   //
   const hasLinks = Array.isArray(links);
@@ -43,10 +51,13 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links, primaryI
               {label}
             </Box>
           ) : (
-            <Link href={primaryItemLink ?? "/"}>{label}</Link>
+            <Button component={Link} onClick={toggleMobile} href={primaryItemLink ?? "/"}>
+              {label}
+            </Button>
           )}
           {hasLinks && (
             <IconChevronRight
+              onClick={toggleMobile}
               className={`${classes.chevron} `}
               stroke={1.5}
               style={{

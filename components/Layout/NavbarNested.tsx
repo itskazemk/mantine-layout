@@ -50,8 +50,8 @@ const mockdata = [
   },
 ];
 
-export function NavbarNested() {
-  const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} />);
+export function NavbarNested({ toggleMobile }: any) {
+  const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} toggleMobile={toggleMobile} />);
 
   return (
     <nav className={`grid h-full grid-rows-[auto,1fr,auto] p-2`}>

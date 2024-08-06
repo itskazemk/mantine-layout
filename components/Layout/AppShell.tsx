@@ -27,7 +27,7 @@ export function Navbar({ children }: any) {
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
-        <NavbarNested />
+        <NavbarNested toggleMobile={toggleMobile}/>
         {/* {Array(15)
           .fill(0)  
           .map((_, index) => (
